@@ -7,18 +7,18 @@ function checkUsername (username, password) {
   }
 }
 
-function createUser(username, password) {
-  function checkPassword(password) {
-    const regularExpression = /^[a-zA-Z0-9]{8,}$/;
-    return regularExpression.test(password);
+function createUser (username, password) {
+  function checkPassword (password) {
+    const regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/
+    return regularExpression.test(password)
   }
 
   if (username === 'username') {
-    return 'Username already exists';
+    return 'Username already exists'
   } else if (!checkPassword(password)) {
-    return 'Password does not meet the security requirements';
+    return 'Password does not meet the security requirements'
   } else {
-    return { username, password };
+    return { username, password }
   }
 }
 
