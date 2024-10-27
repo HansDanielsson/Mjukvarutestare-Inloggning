@@ -1,24 +1,23 @@
 class Inloggning {
-  constructor(username, password) {
+  constructor (username, password) {
     this.username = username
     this.password = password
   }
 
-  checkUsername(username, password) {
+  checkUsername (username, password) {
     // Om text wrong... då är det fel användarnamn eller lösenord
     if (username === this.username && password === this.password) {
       return true
-    } else {
-      return 'Wrong username or password'
     }
+    return 'Wrong username or password'
   }
 
-  checkPassword(password) {
+  checkPassword (password) {
     const regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/
     return regularExpression.test(password)
   }
 
-  createUser(username, password) {
+  createUser (username, password) {
     if (username === this.username) {
       return 'Username already exists'
     }
@@ -28,7 +27,7 @@ class Inloggning {
     return { username, password }
   }
 
-  changePassword(user, oldPassword, newPassword) {
+  changePassword (user, oldPassword, newPassword) {
     if (user !== this.username) {
       return 'Wrong username'
     }
@@ -42,6 +41,7 @@ class Inloggning {
       return 'New password does not meet the security requirements'
     }
     // Update new password here
+    this.password = newPassword
     return true
   }
 }

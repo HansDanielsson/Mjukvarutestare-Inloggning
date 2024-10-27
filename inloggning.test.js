@@ -123,7 +123,7 @@ describe('Skapa ny user', () => {
 })
 
 describe('Ändra lösenordet på användare', () => {
-  let myInloggning
+  // let myInloggning
 
   // Before all
   beforeAll(() => {
