@@ -5,11 +5,9 @@ class Inloggning {
   }
 
   checkUsername (username, password) {
-    // Om text wrong... då är det fel användarnamn eller lösenord
-    if (username === this.username && password === this.password) {
-      return true
-    }
-    return 'Wrong username or password'
+    // Return true if username and password is correct, else return false
+    // Change specification to match with no error messages.
+    return (username === this.username && password === this.password)
   }
 
   checkPassword (password) {

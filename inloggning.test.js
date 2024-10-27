@@ -26,39 +26,39 @@ describe('Inloggning', () => {
   it('Kolla upp username och fel password, return error text', () => {
     const password = 'wrong'
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 
   it('Kolla upp fel username och password, return error text', () => {
     const username = 'wrong'
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 
   it('Kolla upp fel username och fel password, return error text', () => {
     const username = 'wrong'
     const password = 'wrong'
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 
   it('Kolla upp tom username och korrekt password, return error text', () => {
     let username
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 
   it('Kolla upp korrekt username och tom password, return error text', () => {
     let password
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 
   it('Kolla upp tom username och tom password, return error text', () => {
     let username
     let password
     const result = myInloggning.checkUsername(username, password)
-    expect(result).toBe('Wrong username or password')
+    expect(result).toBeFalsy()
   })
 })
 

@@ -2,7 +2,7 @@
   "name": "inloggning",
   "version": "1.0.0",
   "description": "Workspace to Mjukvarutestare-JavaScript",
-  "main": "inloggning.js",
+  "main": "scripts.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
