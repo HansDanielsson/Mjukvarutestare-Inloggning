@@ -1,0 +1,17 @@
+{
+  "name": "inloggning",
+  "version": "1.0.0",
+  "description": "Workspace to Mjukvarutestare-JavaScript",
+  "main": "inloggning.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
