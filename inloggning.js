@@ -25,22 +25,23 @@ class Inloggning {
     return { username, password }
   }
 
+  // Har bytt returnvärdet från True till 0 för att undvika olika return värden
   changePassword (user, oldPassword, newPassword) {
     if (user !== this.username) {
-      return 'Wrong username'
+      return 1
     }
     if (oldPassword !== this.password) {
-      return 'Wrong password'
+      return 2
     }
     if (oldPassword === newPassword) {
-      return 'New password must be different from old password'
+      return 3
     }
     if (!this.checkPassword(newPassword)) {
-      return 'New password does not meet the security requirements'
+      return 4
     }
     // Update new password here
     this.password = newPassword
-    return true
+    return 0
   }
 }
 

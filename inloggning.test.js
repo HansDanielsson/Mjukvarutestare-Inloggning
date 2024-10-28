@@ -138,37 +138,37 @@ describe('Ändra lösenordet på användare', () => {
     myInloggning.password = oldPassword
   })
 
-  it('Ändra på en användare som finns, return true', () => {
+  it('Ändra på en användare som finns, return 0', () => {
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
-    expect(result).toBeTruthy()
+    expect(result).toBe(0)
     expect(myInloggning.password).toBe(newPassword)
   })
 
-  it('Ändra på en användare som inte finns, return error text', () => {
+  it('Ändra på en användare som inte finns, return 1', () => {
     user = 'NotaUser'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
-    expect(result).toBe('Wrong username')
+    expect(result).toBe(1)
     expect(myInloggning.password).toBe('1Password')
   })
 
-  it('Ändra på en användare som har fel password, return error text', () => {
+  it('Ändra på en användare som har fel password, return 2', () => {
     oldPassword = '1OldPassword'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
-    expect(result).toBe('Wrong password')
+    expect(result).toBe(2)
     expect(myInloggning.password).toBe('1Password')
   })
 
-  it('Ändra på en användare som har samma password, return error text', () => {
+  it('Ändra på en användare som har samma password, return 3', () => {
     newPassword = '1Password'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
-    expect(result).toBe('New password must be different from old password')
+    expect(result).toBe(3)
     expect(myInloggning.password).toBe('1Password')
   })
 
-  it('Ändra på en användare som har nya password securiy req, return error text', () => {
+  it('Ändra på en användare som har fel password securiy req, return 4', () => {
     newPassword = '1password'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
-    expect(result).toBe('New password does not meet the security requirements')
+    expect(result).toBe(4)
     expect(myInloggning.password).toBe('1Password')
   })
 })
