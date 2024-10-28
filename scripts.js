@@ -27,16 +27,16 @@ function printUsers () {
 }
 
 function createNewUser () {
-  let username = prompt('Ange användarnamn: ')
-  let password = prompt('Ange lösenord: ')
+  const username = prompt('Ange användarnamn: ')
+  const password = prompt('Ange lösenord: ')
   users.push(new Inloggning(username, password))
   console.log('Ny användare skapad')
   printUsers()
 }
 
 function loginUser () {
-  let username = prompt('Ange användarnamn: ')
-  let password = prompt('Ange lösenord: ')
+  const username = prompt('Ange användarnamn: ')
+  const password = prompt('Ange lösenord: ')
   let login = false
   for (let i = 0; i < users.length; i++) {
     if (users[i].checkUsername(username, password)) {
@@ -53,7 +53,7 @@ function loginUser () {
 }
 
 function newChangePassword () {
-  let newPassword = prompt('Ange nya lösenord: ')
+  const newPassword = prompt('Ange nya lösenord: ')
   if (users[userIndex].changePassword(users[userIndex].username, users[userIndex].password, newPassword) === 0) {
     users[userIndex].password = newPassword
     console.log('Lösenordet har ändrats')
@@ -63,9 +63,10 @@ function newChangePassword () {
 printUsers()
 
 let commandLoop = true
+let command
 while (commandLoop) {
   menyPrint()
-  let command = prompt('Ange kommando: ')
+  command = prompt('Ange kommando: ')
   switch (command) {
     case '1':
       createNewUser()
