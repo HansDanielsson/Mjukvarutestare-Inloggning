@@ -21,7 +21,7 @@ function menyPrint () {
 
 function printUsers () {
   console.log('Användare: ')
-  for (let ui of users) {
+  for (const ui of users) {
     console.log('Namn: ' + ui.username + ' Lösenord: ' + ui.password)
   }
 }
