@@ -1,13 +1,8 @@
 // Import the inloggning class
 const Inloggning = require('./inloggning.js')
-const readline = require('node:readline')
-const prompt = require('prompt-sync')({ sigint: true })
 
-// Simmulera input från användaren
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+// Import the prompt-sync library
+const prompt = require('prompt-sync')({ sigint: true })
 
 // Skapa en array med 5 användare
 const users = []
@@ -17,21 +12,21 @@ for (let i = 0; i < 5; i++) {
 
 let userIndex = 0
 
-function menyPrint() {
+function menyPrint () {
   console.log('1. Skapa ny user')
   console.log('2. Logga in')
   console.log('3. Ändra lösenord')
   console.log('4. Avsluta')
 }
 
-function printUsers() {
+function printUsers () {
   console.log('Användare: ')
   for (let ui of users) {
     console.log('Namn: ' + ui.username + ' Lösenord: ' + ui.password)
   }
 }
 
-function createNewUser() {
+function createNewUser () {
   let username = prompt('Ange användarnamn: ')
   let password = prompt('Ange lösenord: ')
   users.push(new Inloggning(username, password))
@@ -39,7 +34,7 @@ function createNewUser() {
   printUsers()
 }
 
-function loginUser() {
+function loginUser () {
   let username = prompt('Ange användarnamn: ')
   let password = prompt('Ange lösenord: ')
   let login = false
@@ -57,7 +52,7 @@ function loginUser() {
   }
 }
 
-function newChangePassword() {
+function newChangePassword () {
   let newPassword = prompt('Ange nya lösenord: ')
   if (users[userIndex].changePassword(users[userIndex].username, users[userIndex].password, newPassword) === 0) {
     users[userIndex].password = newPassword
