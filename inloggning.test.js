@@ -155,7 +155,7 @@ describe('Ändra lösenordet på användare', () => {
     oldPassword = '1OldPassword'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
     expect(result).toBe(2)
-    expect(myInloggning.password).toBe(oldPassword)
+    expect(myInloggning.password).toBe('1Password')
   })
 
   it('Ändra på en användare som har samma password, return 3', () => {
