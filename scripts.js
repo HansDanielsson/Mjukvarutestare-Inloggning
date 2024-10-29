@@ -5,7 +5,7 @@ const Inloggning = require('./inloggning.js')
 const prompt = require('prompt-sync')({ sigint: true })
 
 // Skapa en array med 5 användare
-let users = []
+const users = []
 for (let i = 0; i < 5; i++) {
   users.push(new Inloggning('username' + i, '1Password' + i))
 }
