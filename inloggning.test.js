@@ -126,12 +126,12 @@ describe('Ändra lösenordet på användare', () => {
 
   // Before all
   beforeAll(() => {
-    user = 'username'
-    myInloggning = new Inloggning(user, '1Password')
+    myInloggning = new Inloggning(user, oldPassword)
   })
 
   // Before each
   beforeEach(() => {
+    user = 'username'
     oldPassword = '1Password'
     newPassword = '1NewPassword'
     myInloggning.username = user
@@ -148,27 +148,27 @@ describe('Ändra lösenordet på användare', () => {
     user = 'NotaUser'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
     expect(result).toBe(1)
-    expect(myInloggning.password).toBe('1Password')
+    expect(myInloggning.password).toBe(oldPassword)
   })
 
   it('Ändra på en användare som har fel password, return 2', () => {
     oldPassword = '1OldPassword'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
     expect(result).toBe(2)
-    expect(myInloggning.password).toBe('1Password')
+    expect(myInloggning.password).toBe(oldPassword)
   })
 
   it('Ändra på en användare som har samma password, return 3', () => {
     newPassword = '1Password'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
     expect(result).toBe(3)
-    expect(myInloggning.password).toBe('1Password')
+    expect(myInloggning.password).toBe(oldPassword)
   })
 
   it('Ändra på en användare som har fel password securiy req, return 4', () => {
     newPassword = '1password'
     const result = myInloggning.changePassword(user, oldPassword, newPassword)
     expect(result).toBe(4)
-    expect(myInloggning.password).toBe('1Password')
+    expect(myInloggning.password).toBe(oldPassword)
   })
 })
