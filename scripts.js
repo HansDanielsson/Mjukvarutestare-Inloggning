@@ -5,9 +5,9 @@ const Inloggning = require('./inloggning.js')
 const prompt = require('prompt-sync')({ sigint: true })
 
 // Skapa en array med 5 användare
-const users = []
+let users = []
 for (let i = 0; i < 5; i++) {
-  users[i] = new Inloggning('username' + i, '1Password' + i)
+  users.push(new Inloggning('username' + i, '1Password' + i))
 }
 
 let userIndex = 0
@@ -55,7 +55,6 @@ function loginUser () {
 function newChangePassword () {
   const newPassword = prompt('Ange nya lösenord: ')
   if (users[userIndex].changePassword(users[userIndex].username, users[userIndex].password, newPassword) === 0) {
-    users[userIndex].password = newPassword
     console.log('Lösenordet har ändrats')
   }
 }
@@ -85,5 +84,5 @@ while (commandLoop) {
       break
   }
 }
-console.log('Nu ere slut: ')
+console.log('Nu ere slut:')
 process.exit(0)
